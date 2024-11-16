@@ -1,0 +1,91 @@
+.factionContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.factionBar, .factionBarSelected {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 350px;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    gap: 0.5rem;
+    background-color: var(--foreground);
+    flex-wrap: nowrap;
+    transition: flex 0.25s ease-in-out;
+}
+
+.factionBarSelected {
+    flex: 7;
+}
+
+.factionBarFilled {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0.5rem;
+  animation: SlideFromBottom 1.5s ease-in-out forwards;
+  transition: height 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.factionBarInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  gap: 1rem;
+  z-index: 1;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.statistic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.25rem;
+  font-size: 1.5rem;
+  animation: FadeIn 0.5s ease-in-out forwards;
+  opacity: 0;
+
+  // make the colour either black or white depending on the background
+  color: var(--text); /* Default color */
+}
+
+.joinButton {
+  opacity: 0;
+  animation: SlideFromBottom 0.5s ease-in-out forwards;
+}
+
+@keyframes SlideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

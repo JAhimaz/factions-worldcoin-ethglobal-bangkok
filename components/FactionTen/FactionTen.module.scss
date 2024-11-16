@@ -1,0 +1,47 @@
+.factionTen {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.factionGrid {
+  // 10 x 1 display flex
+  display: flex;
+  width: 100%;
+  gap: 0.3rem;
+  flex-wrap: nowrap;
+}
+
+.factionGridItem {
+  background-color: var(--foreground);
+  display: flex;
+  width: calc(10% - 0.25rem);
+  height: 30px;
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.factionGridItemContent {
+  width: 100%;
+  height: 100%;
+  transform: translateX(-2rem);
+  animation: FadeIn 0.5s ease forwards;
+  border-radius: 0.25rem;
+}
+
+.lastAddress {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+@keyframes FadeIn {
+  from {
+    transform: translateX(-2rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
