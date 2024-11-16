@@ -5,6 +5,9 @@ import { FC } from "react";
 import { FactionInternalData } from "../types";
 import { Icon } from "@/utils/Icons";
 import { HandleVerify } from "../Verify/verify";
+import { CONTRACTS } from "@/utils/contract/contracts";
+import { callReadFunction } from "@/utils/contract/ether-utils";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 interface FactionData {
   statistics?: {
@@ -60,6 +63,20 @@ const Factions: FC<FactionData> = ({
                 verification_level: "orb",
                 onSuccess: (payload) => {
                   console.log("Verification succeeded:", payload);
+
+                  const res = MiniKit.commands.sendTransaction({
+                    transaction: [
+                      {
+                        address: CONTRACTS.Test.address,
+                        abi: CONTRACTS.Test.abi,
+                        functionName: "implementation",
+                        args: []  
+                      }
+                    ],
+                  })
+
+                  console.log(res)
+
                   setSelected(undefined);
                 },
                 onFail: (error) => {

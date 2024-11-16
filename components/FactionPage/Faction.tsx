@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Factions from "../Factions/Factions";
 import FactionTen from "../FactionTen/FactionTen";
 import { FactionInternalData, Factions as FactionTypes } from "../types"
-import { VerifyBlock } from "../Verify";
 import AttackMenu from "../Attack/Attack";
 
 
