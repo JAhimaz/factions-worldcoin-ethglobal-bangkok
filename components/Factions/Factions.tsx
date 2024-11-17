@@ -26,7 +26,7 @@ const Factions: FC<FactionData> = ({
   return (
     <section className={styles.factionContainer}>
       { statistics && Object.keys(statistics).map((faction) => (
-        <div className={selected === faction ? styles.factionBarSelected : styles.factionBar} id={faction}
+        <div key={faction} className={selected === faction ? styles.factionBarSelected : styles.factionBar} id={faction}
         onClick={() => {
           // if selected is already the same as the clicked faction, set selected to undefined
           setSelected(selected === faction ? undefined : faction);
@@ -64,18 +64,7 @@ const Factions: FC<FactionData> = ({
                 onSuccess: (payload) => {
                   console.log("Verification succeeded:", payload);
 
-                  const res = MiniKit.commands.sendTransaction({
-                    transaction: [
-                      {
-                        address: CONTRACTS.Test.address,
-                        abi: CONTRACTS.Test.abi,
-                        functionName: "implementation",
-                        args: []  
-                      }
-                    ],
-                  })
-
-                  console.log(res)
+                  
 
                   setSelected(undefined);
                 },

@@ -1,6 +1,5 @@
 "use client";
 import { FC } from "react";
-import Navigation from "./Navigation/Navigation";
 import { SignIn } from "./SignIn";
 
 type PageProps = {

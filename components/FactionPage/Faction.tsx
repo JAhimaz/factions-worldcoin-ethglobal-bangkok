@@ -56,7 +56,7 @@ const Faction = () => {
         updatedStats[newFactionPick.faction].users += 1;
         return updatedStats;
       });
-    }, 2000);
+    }, 4000);
   
     return () => {
       isMounted = false;

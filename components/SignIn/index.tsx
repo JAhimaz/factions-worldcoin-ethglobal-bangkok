@@ -51,7 +51,7 @@ export const SignIn = () => {
     )
   } else {
     return (
-      <button onClick={() => signIn()} className={styles.loginButton}>Verify to Sign In</button>
+      <button onClick={() => signIn('worldcoin')} className={styles.loginButton}>Verify to Sign In</button>
     );
   }
 };
