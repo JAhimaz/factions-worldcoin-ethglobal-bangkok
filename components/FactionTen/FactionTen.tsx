@@ -29,7 +29,10 @@ const FactionTen: FC<{
       <section className={styles.factionGrid}>
         {factionPicks.map((factionPick, index) => (
           <div className={styles.factionGridItem} key={factionPick.address}>
-            <div className={styles.factionGridItemContent} style={{
+            <div className={styles.factionGridItemContent} onClick={() => {
+              // redirect to a blockscout link with the txid
+              window.open(`https://worldchain-mainnet.explorer.alchemy.com/tx/${factionPick.txid}`, '_blank');
+            }} style={{
               animationDelay: `${index * 0.1}s`,
               backgroundColor: `var(--${factionPick.faction})`
             }}/>  
